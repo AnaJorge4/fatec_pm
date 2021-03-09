@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programação em Microinformática - Exercício 2</title>
+</head>
+<body>
+    <h1> Programação em Microinformática - Exercício 5 </h1>
+        <p> Solicitar 3 números, calcular X1 e X2 através da Fórmula de Bhaskara e exibir as duas raízes como resultado.</p>
+        <form id="form">
+            <input id="field1" type="text" placeholder="Solicite o primeiro número:">
+            <input id="field2" type="text" placeholder="Solicite o segundo número:">
+            <input id="field3" type="text" placeholder="Solicite o terceiro número:">
+            <button>Calcular</button>
+        </form>
+        <div id="result">
+            <script>
+                function onSubmit (event) {
+                event.preventDefault()
+
+            let a = parseFloat(field1.value)
+            let b = parseFloat(field2.value)
+            let c = parseFloat(field3.value)
+
+
+                let delta = (b * b) - 4 * a * c
+                let x1 = ((-b + Math.sqrt(delta)) / 2 * a)
+                let x2 = ((-b - Math.sqrt(delta)) / 2 * a)
+
+                result.innerHTML = `O resultado da primeira raíz (X1) é ${x1}. <br><br> O resultado da segunda raíz (X2) é ${x2}`
+        
+                }
+        form.addEventListener('submit', onSubmit)
+        </script>
+</body>
+</html>
