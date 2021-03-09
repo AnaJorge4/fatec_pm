@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1</title>
+</head>
+<body>
+            <h1>Programação em Microinformática - Exercício 1</h1>
+                <p> Solicite várias informações e faça a exibição em uma única mensagem.</p>
+        <script>
+            let name = prompt('Digite seu nome:')
+            let last = prompt('Digite seu sobrenome:')
+            let email = prompt('Digite seu email:')
+            let city = prompt('Digite sua cidade:')
+            
+           // Template String (do ECMAScript 2015) 
+            document.write( `Olá, ${name} ${last}, boas vindas! Seu email é ${email} e você está em ${city}. ` ) //Utilize crase
+        </script>
+</body>
+</html>
