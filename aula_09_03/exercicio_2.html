@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Exercício 2 - Aula 09/03/2021 - Programação em Microinformática</title>
+</head>
+<body>
+    <h1>  Exercício 2 - Aula 09/03/2021 - Programação em Microinformática</h1>
+    <form id="form">
+        <input id="field1" type="text" placeholder="Informe seu nome:">
+        <input id="field2" type="text" placeholder="Informe seu gênero ( F ou M):">
+        <button>Enviar</button>
+    </form>
+
+    <script>
+            function onSubmit (event) {
+                event.preventDefault()
+
+            let name = parseFloat(field1.value)
+            let gender = parseFloat(field2.value)
+
+            if (gender === 'f') {
+        para.textContent = 'Olá ${name}, seja bem vinda!';
+      } else if (gender === 'm') {
+        para.textContent = 'Olá ${name}, seja bem vindo!';
+      }else{
+            para.textContent = '';
+            }
+        }
+        form.addEventListener('submit', onSubmit)
+        
+    </script>
+</body>
+</html>
