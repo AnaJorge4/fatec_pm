@@ -12,33 +12,34 @@
                 <label for="weather"> Selecione o tempo de hoje: </label>
 
                 <select id="weather">
-    <option value="">--Make a choice--</option>
-    <option value="sunny">Ensolarado</option>
-    <option value="rainy">Chuvoso</option>
-    <option value="snowing">Nevando</option>
-    <option value="overcast">Nublado</option>
+                  <option value=""> Escolha uma opção: </option>
+                  <option value="sunny">Ensolarado</option>
+                  <option value="rainy">Chuvoso</option>
+                  <option value="snowing">Nevando</option>
+                  <option value="overcast">Nublado</option>
                 </select>
 
-<p></p>
-var select = document.querySelector('select');
-var para = document.querySelector('p');
+                <var select = document.querySelector('select');
+                var para = document.querySelector('p');
+                
+                <script>
+                  select.addEventListener('change', setWeather);
+            <function setWeather() {
+        var choice = select.value;
 
-select.addEventListener('change', setWeather);
+          if (choice === 'sunny') {
+        para.textContent = 'Hoje está um dia agradável e ensolarado lá fora. Use bermudas! Vá à praia, ou ao parque, e tome um sorvete!';
+      } else if (choice === 'rainy') {
+        para.textContent = 'A chuva está caindo lá fora; Pegue uma capa de chuva e um guarda-chuvas. Não fique lá fora por muito tempo!';
+      } else if (choice === 'snowing') {
+        para.textContent = 'A neve está caindo - está congelando! É melhor ficar em casa com uma xícara de chocolate quente, ou vá construir um boneco de neve!';
+      } else if (choice === 'overcast') {
+        para.textContent = ' Não está chovendo, mas o céu está cinza e escuro; Pode chover a qualquer minuto, leve uma capa de chuva, por precaução.';
+      } else {
+        para.textContent = '';
+      }
+    }
 
-function setWeather() {
-  var choice = select.value;
-
-  if (choice === 'sunny') {
-    para.textContent = 'It is nice and sunny outside today. Wear shorts! Go to the beach, or the park, and get an ice cream.';
-  } else if (choice === 'rainy') {
-    para.textContent = 'Rain is falling outside; take a rain coat and a brolly, and don\'t stay out for too long.';
-  } else if (choice === 'snowing') {
-    para.textContent = 'The snow is coming down — it is freezing! Best to stay in with a cup of hot chocolate, or go build a snowman.';
-  } else if (choice === 'overcast') {
-    para.textContent = 'It isn\'t raining, but the sky is grey and gloomy; it could turn any minute, so take a rain coat just in case.';
-  } else {
-    para.textContent = '';
-  }
-}
+                </script>
 </body>
 </html>
