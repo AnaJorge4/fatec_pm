@@ -1,36 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercício 4 - Aula 09/03/2021</title>
-</head>
-<body>
-    <h1> Programação em Microinformática - Exercício 4</h1>
-    <form id="form">
-        <input id="field1" type="num" placeholder="Solicite o primeiro número:">
-        <button onclick="tabuada()">Exibir</button><br />
-    </form>
+<!DOCTYPE html> 
+<html> 
+	<head> 
+        <title>Exercício 4 - Aula 09/03/2021</title> 
+		<script type="text/javascript" src="script.js"> </script>
+        <link rel="stylesheet" href="base.css">
+	</head> 
+							
+    <body> 
+		<h1>Tabuada do número: <input id="num" type="number"> </h1> <br> 
 
-    <div id="result"></div>
-
-    <script>
-        function onSubmit(event) {
-        event.preventDefault()
-  
-        let n1 = parseFloat(field1.value)
-
-        result.innerHTML = ''
-        }
-
-            for(let i = 1; count<=10 ; count++) {
-            tabuada += n1+" x "+count+" = "+
-            result.innerHTML += `${i}, `
-            }
-  
-            form.addEventListener('submit', onSubmit)
-        
-  </script>
-</body>
+            <button onclick="tabuada()">Exibir</button> <br> 
+            Tabuada: <br> <div id='resposta'></div> 
+                
+            <script>
+                function tabuada(){
+                var num = parseInt(document.getElementById("num").value)
+                var resposta = document.getElementById('resposta')
+                var tabuada=''
+                                                        
+                for(var count=1; count<=10 ; count++) 
+                tabuada += num+" x "+count+" = "+ num*count+"<br />"
+                resposta.innerHTML = tabuada; }
+                                        
+            </script>
+    </body>
 </html>
