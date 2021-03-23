@@ -1,45 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta http-equiv="X-UA-Compatible" content="IE=edge">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-            <title> Exercício 1 - Dia 09/02/2021 - Programação em Microinformática</title>
-        </head>
-            <body>
-                
-                <label for="weather"> Selecione o tempo de hoje: </label>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="base.css">
+  <title>Programação em Microinformática - Exercício 07</title>
+</head>
+<body>
+  <p>Escolha como está o tempo.</p>
 
-                <select id="weather">
-                  <option value=""> Escolha uma opção: </option>
-                  <option value="sunny">Ensolarado</option>
-                  <option value="rainy">Chuvoso</option>
-                  <option value="snowing">Nevando</option>
-                  <option value="overcast">Nublado</option>
-                </select>
+  <form id="form" novalidate>
+    <select id="field" required>
+      <option value="">Como está o tempo hoje?</option>
+      <option value="sunny">Ensolarado</option>
+      <option value="rainy">Chuvoso</option>
+      <option value="snowing">Nevando</option>
+      <option value="overcast">Nublado</option>
+    </select>
 
-                <var select = document.querySelector('select');
-                var para = document.querySelector('p');
-                
-                <script>
-                select.addEventListener('change', setWeather);
-            function setWeather() {
-        var choice = select.value;
+    <button>Ver </button>
+  </form>
 
-          if (choice === 'sunny') {
-        para.textContent = 'Hoje está um dia agradável e ensolarado lá fora. Use bermudas! Vá à praia, ou ao parque, e tome um sorvete!';
+  <div id="result"></div>
+
+  <script>
+    function onSubmit(event) {
+      event.preventDefault()
+
+      let choice = field.value
+
+      field.className = ''
+
+      if (choice === 'sunny') {
+        result.innerHTML = '<p>Está bom e ensolarado lá fora. Use roupas leves! E que tal tomar um sorvete?</p>'
       } else if (choice === 'rainy') {
-        para.textContent = 'A chuva está caindo lá fora; Pegue uma capa de chuva e um guarda-chuvas. Não fique lá fora por muito tempo!';
+        result.innerHTML = '<p>Chuva caindo lá fora. Se for sair, um guarda-chuva é uma boa ideia. E não se exponha se começar a relampejar!</p>'
       } else if (choice === 'snowing') {
-        para.textContent = 'A neve está caindo - está congelando! É melhor ficar em casa com uma xícara de chocolate quente, ou vá construir um boneco de neve!';
+        result.innerHTML = '<p>Neve caindo, é congelante! Melhor ficar com um copo de chocolate quente em casa. Ou vai lá fazer um boneco-de-neve.</p>'
       } else if (choice === 'overcast') {
-        para.textContent = ' Não está chovendo, mas o céu está cinza e escuro; Pode chover a qualquer minuto, leve uma capa de chuva, por precaução.';
+        result.innerHTML = '<p>Não está chovendo, mas o céu está fechado. Talvez chova a qualquer momento. Então leve seu guarda-chuva como precaução!</p>'
       } else {
-        para.textContent = '';
+        result.innerHTML = '<p class="negative">Quando eu pedir para responder algo, faça isso!</p>'
+        field.className = 'negative'
+        field.focus()
       }
     }
 
-                </script>
+    form.addEventListener('submit', onSubmit)
+  </script>
 </body>
 </html>
