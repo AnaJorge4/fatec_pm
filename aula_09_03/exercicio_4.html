@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 4 - Aula 09/03/2021</title>
+</head>
+<body>
+    <h1> Programação em Microinformática - Exercício 4</h1>
+    <form id="form">
+        <input id="field1" type="num" placeholder="Solicite o primeiro número:">
+        <button onclick="tabuada()">Exibir</button><br />
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        function onSubmit(event) {
+        event.preventDefault()
+  
+        let n1 = parseFloat(field1.value)
+
+        result.innerHTML = ''
+        }
+
+            for(let i = 1; count<=10 ; count++) {
+            tabuada += n1+" x "+count+" = "+
+            result.innerHTML += `${i}, `
+            }
+  
+            form.addEventListener('submit', onSubmit)
+        
+  </script>
+</body>
+</html>
