@@ -1,36 +1,61 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Exercício 2 - Aula 09/03/2021 - Programação em Microinformática</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="base.css">
+  <title>Programação em Microinformática - Exercício 08</title>
 </head>
 <body>
-    <h1>  Exercício 2 - Aula 09/03/2021 - Programação em Microinformática</h1>
-    <form id="form">
-        <input id="field1" type="text" placeholder="Informe seu nome:">
-        <input id="field2" type="text" placeholder="Informe seu gênero ( F ou M):">
-        <button>Enviar</button>
-    </form>
+  <p>Preencha seu nome e seu gênero.</p>
 
-    <script>
-            function onSubmit (event) {
-                event.preventDefault()
+  <form id="form" novalidate>
+    <input id="field1" type="text" placeholder="Qual o seu nome?">
 
-            let name = parseFloat(field1.value)
-            let gender = parseFloat(field2.value)
+    <select id="field2" required>
+      <option value="">Qual seu gênero?</option>
+      <option value="f">Feminino</option>
+      <option value="m">Masculino</option>
+    </select>
 
-            if (gender === 'f') {
-        para.textContent = 'Olá ${name}, seja bem vinda!';
-      } else if (gender === 'm') {
-        para.textContent = 'Olá ${name}, seja bem vindo!';
-      }else{
-            para.textContent = '';
-            }
-        }
-        form.addEventListener('submit', onSubmit)
-        
-    </script>
+    <button>Receber mensagem</button>
+  </form>
+
+  <div id="result"></div>
+
+  <script>
+    function onSubmit(event) {
+      event.preventDefault()
+
+      let name = field1.value
+      let gender = field2.value
+
+      field1.className = ''
+      field2.className = ''
+
+      if (name === '') {
+        result.innerHTML = '<p class="negative">Por favor, informe seu nome.</p>'
+        field1.className = 'negative'
+        field1.focus()
+        return
+      }
+
+      if (gender === '') {
+        result.innerHTML = '<p class="negative">E que tal selecionar o gênero conforme solicitei?</p>'
+        field2.className = 'negative'
+        field2.focus()
+        return
+      }
+
+      if (gender === 'f') {
+        result.innerHTML = `<p class="women">Bem-vinda ${name}, que visão sublime vê-la por aqui!</p>`
+      } else {
+        result.innerHTML = `<p class="men">Bem-vindo ${name}, é um prazer tê-lo por aqui, mano!</p>`
+      }
+    }
+
+    form.addEventListener('submit', onSubmit)
+  </script>
 </body>
 </html>
